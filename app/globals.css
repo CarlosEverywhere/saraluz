@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Sara Luz — rosa claro, azul marino, azul rey y turquesa (decisión del dueño) */
+  --color-fondo: #fbf3f6; /* rosa claro muy suave */
+  --color-superficie: #ffffff;
+  --color-borde: #e9d7e0;
+  --color-tinta: #142445; /* azul marino, texto principal */
+  --color-tinta-suave: #47587a;
+  --color-marca: #e71c73; /* rosa mexicano del logo */
+  --color-acento: #c4105f; /* fucsia: CTAs y selecciones de dama, 5.8:1 con blanco */
+  --color-acento-hover: #a50d50;
+  --color-carbon: #0f1d3a; /* azul marino profundo: banner, footer, línea Josh Men's */
+  --color-exito: #0e7c6e; /* turquesa profundo */
+  --color-advertencia: #8c5a12;
+  --color-error: #b3264a;
+
+  --font-titulo: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-cuerpo: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-tarjeta: 12px;
+  --radius-control: 8px;
+
+  --shadow-flotante: 0 12px 40px -12px rgb(43 33 24 / 0.25);
+  --shadow-tarjeta: 0 4px 16px -6px rgb(43 33 24 / 0.16);
+
+  --ease-entrada: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Tema de la sección Caballero (Josh Men's): dentro de este ámbito,
+   el acento pasa de fucsia a azul rey sin tocar ningún componente. */
+[data-tema="caballero"] {
+  --color-acento: #1d4ed8;
+  --color-acento-hover: #1e40af;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-tinta);
+  font-family: var(--font-cuerpo);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-marca);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
